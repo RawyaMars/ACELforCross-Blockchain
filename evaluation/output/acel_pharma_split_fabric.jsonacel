@@ -1,0 +1,773 @@
+{
+  "acel:global-log": {
+    "acel:version": "1.0",
+    "acel:ordering": "timestamp",
+    "acel:attribute-names": [
+      "batchId",
+      "carrier",
+      "destination",
+      "lotId",
+      "manufacturer",
+      "materialName",
+      "product",
+      "quantity",
+      "shipmentId",
+      "status",
+      "supplier"
+    ],
+    "acel:object-types": [
+      "Lot",
+      "RawMaterialBatch",
+      "Shipment"
+    ],
+    "acel:relation-types": [
+      "usesRawMaterial",
+      "hasShipment"
+    ],
+    "acel:bc-reference": {
+      "NAME": "Hyperledger Fabric",
+      "BLOCKCHAINID": "PharmaChannel"
+    },
+    "acel:sc-reference": {
+      "CONTRACTID": "pharmatrace-cc",
+      "startBlock": 1,
+      "endBlock": 500000
+    }
+  },
+  "acel:objects": {
+    "Lot:LOT-00000": {
+      "acel:type": "Lot",
+      "acel:ovmap": {
+        "lotId": "LOT-00000",
+        "product": "Paracetamol API",
+        "quantity": 704,
+        "manufacturer": "PharmaGen",
+        "status": "qc_approved"
+      }
+    },
+    "RawMaterialBatch:LOT-00000-RM0": {
+      "acel:type": "RawMaterialBatch",
+      "acel:ovmap": {
+        "batchId": "LOT-00000-RM0",
+        "materialName": "Excipient-X",
+        "supplier": "RawChem Co",
+        "quantity": 204
+      }
+    },
+    "Lot:LOT-00001": {
+      "acel:type": "Lot",
+      "acel:ovmap": {
+        "lotId": "LOT-00001",
+        "product": "Paracetamol API",
+        "quantity": 1267,
+        "manufacturer": "Sanofi-TN",
+        "status": "qc_approved"
+      }
+    },
+    "RawMaterialBatch:LOT-00001-RM0": {
+      "acel:type": "RawMaterialBatch",
+      "acel:ovmap": {
+        "batchId": "LOT-00001-RM0",
+        "materialName": "Paracetamol API",
+        "supplier": "RawChem Co",
+        "quantity": 303
+      }
+    },
+    "Lot:LOT-00002": {
+      "acel:type": "Lot",
+      "acel:ovmap": {
+        "lotId": "LOT-00002",
+        "product": "Amoxicillin API",
+        "quantity": 553,
+        "manufacturer": "PharmaGen",
+        "status": "qc_approved"
+      }
+    },
+    "RawMaterialBatch:LOT-00002-RM0": {
+      "acel:type": "RawMaterialBatch",
+      "acel:ovmap": {
+        "batchId": "LOT-00002-RM0",
+        "materialName": "Amoxicillin API",
+        "supplier": "APIWorks",
+        "quantity": 259
+      }
+    },
+    "RawMaterialBatch:LOT-00002-RM1": {
+      "acel:type": "RawMaterialBatch",
+      "acel:ovmap": {
+        "batchId": "LOT-00002-RM1",
+        "materialName": "Amoxicillin API",
+        "supplier": "ChemSource Ltd",
+        "quantity": 194
+      }
+    },
+    "RawMaterialBatch:LOT-00002-RM2": {
+      "acel:type": "RawMaterialBatch",
+      "acel:ovmap": {
+        "batchId": "LOT-00002-RM2",
+        "materialName": "Paracetamol API",
+        "supplier": "APIWorks",
+        "quantity": 967
+      }
+    },
+    "Lot:LOT-00003": {
+      "acel:type": "Lot",
+      "acel:ovmap": {
+        "lotId": "LOT-00003",
+        "product": "Paracetamol API",
+        "quantity": 3600,
+        "manufacturer": "PharmaGen",
+        "status": "qc_rejected"
+      }
+    },
+    "RawMaterialBatch:LOT-00003-RM0": {
+      "acel:type": "RawMaterialBatch",
+      "acel:ovmap": {
+        "batchId": "LOT-00003-RM0",
+        "materialName": "Amoxicillin API",
+        "supplier": "RawChem Co",
+        "quantity": 296
+      }
+    },
+    "RawMaterialBatch:LOT-00003-RM1": {
+      "acel:type": "RawMaterialBatch",
+      "acel:ovmap": {
+        "batchId": "LOT-00003-RM1",
+        "materialName": "Paracetamol API",
+        "supplier": "ChemSource Ltd",
+        "quantity": 777
+      }
+    },
+    "RawMaterialBatch:LOT-00003-RM2": {
+      "acel:type": "RawMaterialBatch",
+      "acel:ovmap": {
+        "batchId": "LOT-00003-RM2",
+        "materialName": "Amoxicillin API",
+        "supplier": "ChemSource Ltd",
+        "quantity": 975
+      }
+    },
+    "Lot:LOT-00004": {
+      "acel:type": "Lot",
+      "acel:ovmap": {
+        "lotId": "LOT-00004",
+        "product": "Amoxicillin API",
+        "quantity": 4214,
+        "manufacturer": "Biolab-TN",
+        "status": "qc_approved"
+      }
+    },
+    "RawMaterialBatch:LOT-00004-RM0": {
+      "acel:type": "RawMaterialBatch",
+      "acel:ovmap": {
+        "batchId": "LOT-00004-RM0",
+        "materialName": "Amoxicillin API",
+        "supplier": "ChemSource Ltd",
+        "quantity": 786
+      }
+    }
+  },
+  "acel:relations": {
+    "usesRawMaterial:RawMaterialBatch:LOT-00000-RM0->Lot:LOT-00000": {
+      "acel:type": "usesRawMaterial",
+      "acel:rvmap": {
+        "source": "RawMaterialBatch:LOT-00000-RM0",
+        "target": "Lot:LOT-00000",
+        "cardinality": "many2one"
+      }
+    },
+    "usesRawMaterial:RawMaterialBatch:LOT-00001-RM0->Lot:LOT-00001": {
+      "acel:type": "usesRawMaterial",
+      "acel:rvmap": {
+        "source": "RawMaterialBatch:LOT-00001-RM0",
+        "target": "Lot:LOT-00001",
+        "cardinality": "many2one"
+      }
+    },
+    "usesRawMaterial:RawMaterialBatch:LOT-00002-RM0->Lot:LOT-00002": {
+      "acel:type": "usesRawMaterial",
+      "acel:rvmap": {
+        "source": "RawMaterialBatch:LOT-00002-RM0",
+        "target": "Lot:LOT-00002",
+        "cardinality": "many2one"
+      }
+    },
+    "usesRawMaterial:RawMaterialBatch:LOT-00002-RM1->Lot:LOT-00002": {
+      "acel:type": "usesRawMaterial",
+      "acel:rvmap": {
+        "source": "RawMaterialBatch:LOT-00002-RM1",
+        "target": "Lot:LOT-00002",
+        "cardinality": "many2one"
+      }
+    },
+    "usesRawMaterial:RawMaterialBatch:LOT-00002-RM2->Lot:LOT-00002": {
+      "acel:type": "usesRawMaterial",
+      "acel:rvmap": {
+        "source": "RawMaterialBatch:LOT-00002-RM2",
+        "target": "Lot:LOT-00002",
+        "cardinality": "many2one"
+      }
+    },
+    "usesRawMaterial:RawMaterialBatch:LOT-00003-RM0->Lot:LOT-00003": {
+      "acel:type": "usesRawMaterial",
+      "acel:rvmap": {
+        "source": "RawMaterialBatch:LOT-00003-RM0",
+        "target": "Lot:LOT-00003",
+        "cardinality": "many2one"
+      }
+    },
+    "usesRawMaterial:RawMaterialBatch:LOT-00003-RM1->Lot:LOT-00003": {
+      "acel:type": "usesRawMaterial",
+      "acel:rvmap": {
+        "source": "RawMaterialBatch:LOT-00003-RM1",
+        "target": "Lot:LOT-00003",
+        "cardinality": "many2one"
+      }
+    },
+    "usesRawMaterial:RawMaterialBatch:LOT-00003-RM2->Lot:LOT-00003": {
+      "acel:type": "usesRawMaterial",
+      "acel:rvmap": {
+        "source": "RawMaterialBatch:LOT-00003-RM2",
+        "target": "Lot:LOT-00003",
+        "cardinality": "many2one"
+      }
+    },
+    "usesRawMaterial:RawMaterialBatch:LOT-00004-RM0->Lot:LOT-00004": {
+      "acel:type": "usesRawMaterial",
+      "acel:rvmap": {
+        "source": "RawMaterialBatch:LOT-00004-RM0",
+        "target": "Lot:LOT-00004",
+        "cardinality": "many2one"
+      }
+    }
+  },
+  "acel:events": {
+    "e0": {
+      "acel:activity": "LotCreated",
+      "acel:timestamp": 1700000341,
+      "vmap": {
+        "blocknum": 1,
+        "resource": "9a44a2badce1aa6a2ee0a6920bfc979b975a0ee045dd089cf8f532afe8837953"
+      },
+      "omap": [
+        "Lot:LOT-00000"
+      ],
+      "rmap": [],
+      "ocmap": {
+        "Lot:LOT-00000": {
+          "acel:lifecycle": "created",
+          "acel:changed": {
+            "lotId": "LOT-00000",
+            "product": "Paracetamol API",
+            "quantity": 704,
+            "manufacturer": "PharmaGen",
+            "status": "created"
+          }
+        }
+      },
+      "rcmap": {}
+    },
+    "e1": {
+      "acel:activity": "RawMaterialReceived",
+      "acel:timestamp": 1700000858,
+      "vmap": {
+        "blocknum": 2,
+        "resource": "226ad483de5d617b6b3c5bb2bf9e4529a0e5600a92f915148b83d202afd6fb24"
+      },
+      "omap": [
+        "RawMaterialBatch:LOT-00000-RM0",
+        "Lot:LOT-00000"
+      ],
+      "rmap": [
+        "usesRawMaterial:RawMaterialBatch:LOT-00000-RM0->Lot:LOT-00000"
+      ],
+      "ocmap": {
+        "RawMaterialBatch:LOT-00000-RM0": {
+          "acel:lifecycle": "created",
+          "acel:changed": {
+            "batchId": "LOT-00000-RM0",
+            "materialName": "Excipient-X",
+            "supplier": "RawChem Co",
+            "quantity": 204
+          }
+        },
+        "Lot:LOT-00000": {
+          "acel:lifecycle": "updated",
+          "acel:changed": {}
+        }
+      },
+      "rcmap": {
+        "usesRawMaterial:RawMaterialBatch:LOT-00000-RM0->Lot:LOT-00000": "created"
+      }
+    },
+    "e2": {
+      "acel:activity": "QualityControlApproved",
+      "acel:timestamp": 1700007229,
+      "vmap": {
+        "blocknum": 3,
+        "resource": "a99beb77ed2af33a2f7e9e9a9e6cae5f968fb9e4a2e11f7723bfee60fd8eea25"
+      },
+      "omap": [
+        "Lot:LOT-00000"
+      ],
+      "rmap": [],
+      "ocmap": {
+        "Lot:LOT-00000": {
+          "acel:lifecycle": "updated",
+          "acel:changed": {
+            "status": "qc_approved"
+          }
+        }
+      },
+      "rcmap": {}
+    },
+    "e3": {
+      "acel:activity": "LotCreated",
+      "acel:timestamp": 1700069330,
+      "vmap": {
+        "blocknum": 4,
+        "resource": "7dc4c74d504c34784d4b13adee6814411db5e3708ff20907990cc148c0a00b3d"
+      },
+      "omap": [
+        "Lot:LOT-00001"
+      ],
+      "rmap": [],
+      "ocmap": {
+        "Lot:LOT-00001": {
+          "acel:lifecycle": "created",
+          "acel:changed": {
+            "lotId": "LOT-00001",
+            "product": "Paracetamol API",
+            "quantity": 1267,
+            "manufacturer": "Sanofi-TN",
+            "status": "created"
+          }
+        }
+      },
+      "rcmap": {}
+    },
+    "e4": {
+      "acel:activity": "RawMaterialReceived",
+      "acel:timestamp": 1700070424,
+      "vmap": {
+        "blocknum": 5,
+        "resource": "55aa56586d2ee36ed8353eb2270c160f84338894cefa2621d15ed3ed13c27deb"
+      },
+      "omap": [
+        "RawMaterialBatch:LOT-00001-RM0",
+        "Lot:LOT-00001"
+      ],
+      "rmap": [
+        "usesRawMaterial:RawMaterialBatch:LOT-00001-RM0->Lot:LOT-00001"
+      ],
+      "ocmap": {
+        "RawMaterialBatch:LOT-00001-RM0": {
+          "acel:lifecycle": "created",
+          "acel:changed": {
+            "batchId": "LOT-00001-RM0",
+            "materialName": "Paracetamol API",
+            "supplier": "RawChem Co",
+            "quantity": 303
+          }
+        },
+        "Lot:LOT-00001": {
+          "acel:lifecycle": "updated",
+          "acel:changed": {}
+        }
+      },
+      "rcmap": {
+        "usesRawMaterial:RawMaterialBatch:LOT-00001-RM0->Lot:LOT-00001": "created"
+      }
+    },
+    "e5": {
+      "acel:activity": "QualityControlApproved",
+      "acel:timestamp": 1700076956,
+      "vmap": {
+        "blocknum": 6,
+        "resource": "da837da6e0eb68ae15270a9af2f4498522b486c35e770a0204db66af4a013cc5"
+      },
+      "omap": [
+        "Lot:LOT-00001"
+      ],
+      "rmap": [],
+      "ocmap": {
+        "Lot:LOT-00001": {
+          "acel:lifecycle": "updated",
+          "acel:changed": {
+            "status": "qc_approved"
+          }
+        }
+      },
+      "rcmap": {}
+    },
+    "e6": {
+      "acel:activity": "LotCreated",
+      "acel:timestamp": 1700142573,
+      "vmap": {
+        "blocknum": 7,
+        "resource": "bb3cc48183399351ccaf24793135d7c069a334ca4b67d89e67e24ad8987d3b8c"
+      },
+      "omap": [
+        "Lot:LOT-00002"
+      ],
+      "rmap": [],
+      "ocmap": {
+        "Lot:LOT-00002": {
+          "acel:lifecycle": "created",
+          "acel:changed": {
+            "lotId": "LOT-00002",
+            "product": "Amoxicillin API",
+            "quantity": 553,
+            "manufacturer": "PharmaGen",
+            "status": "created"
+          }
+        }
+      },
+      "rcmap": {}
+    },
+    "e7": {
+      "acel:activity": "RawMaterialReceived",
+      "acel:timestamp": 1700143498,
+      "vmap": {
+        "blocknum": 8,
+        "resource": "541afb7750e01978d769eba655fe68ad0643d89180f225ea7ce79944762be6e1"
+      },
+      "omap": [
+        "RawMaterialBatch:LOT-00002-RM0",
+        "Lot:LOT-00002"
+      ],
+      "rmap": [
+        "usesRawMaterial:RawMaterialBatch:LOT-00002-RM0->Lot:LOT-00002"
+      ],
+      "ocmap": {
+        "RawMaterialBatch:LOT-00002-RM0": {
+          "acel:lifecycle": "created",
+          "acel:changed": {
+            "batchId": "LOT-00002-RM0",
+            "materialName": "Amoxicillin API",
+            "supplier": "APIWorks",
+            "quantity": 259
+          }
+        },
+        "Lot:LOT-00002": {
+          "acel:lifecycle": "updated",
+          "acel:changed": {}
+        }
+      },
+      "rcmap": {
+        "usesRawMaterial:RawMaterialBatch:LOT-00002-RM0->Lot:LOT-00002": "created"
+      }
+    },
+    "e8": {
+      "acel:activity": "RawMaterialReceived",
+      "acel:timestamp": 1700143998,
+      "vmap": {
+        "blocknum": 9,
+        "resource": "c9dd150ab6ebb757798067331b827adbb844e5a67dfd84301a6ec9d23626ae93"
+      },
+      "omap": [
+        "RawMaterialBatch:LOT-00002-RM1",
+        "Lot:LOT-00002"
+      ],
+      "rmap": [
+        "usesRawMaterial:RawMaterialBatch:LOT-00002-RM1->Lot:LOT-00002"
+      ],
+      "ocmap": {
+        "RawMaterialBatch:LOT-00002-RM1": {
+          "acel:lifecycle": "created",
+          "acel:changed": {
+            "batchId": "LOT-00002-RM1",
+            "materialName": "Amoxicillin API",
+            "supplier": "ChemSource Ltd",
+            "quantity": 194
+          }
+        },
+        "Lot:LOT-00002": {
+          "acel:lifecycle": "updated",
+          "acel:changed": {}
+        }
+      },
+      "rcmap": {
+        "usesRawMaterial:RawMaterialBatch:LOT-00002-RM1->Lot:LOT-00002": "created"
+      }
+    },
+    "e9": {
+      "acel:activity": "RawMaterialReceived",
+      "acel:timestamp": 1700144836,
+      "vmap": {
+        "blocknum": 10,
+        "resource": "37d5c305023e02a633083905f7e7e82331a114f166ae2e47034aca9af99ab741"
+      },
+      "omap": [
+        "RawMaterialBatch:LOT-00002-RM2",
+        "Lot:LOT-00002"
+      ],
+      "rmap": [
+        "usesRawMaterial:RawMaterialBatch:LOT-00002-RM2->Lot:LOT-00002"
+      ],
+      "ocmap": {
+        "RawMaterialBatch:LOT-00002-RM2": {
+          "acel:lifecycle": "created",
+          "acel:changed": {
+            "batchId": "LOT-00002-RM2",
+            "materialName": "Paracetamol API",
+            "supplier": "APIWorks",
+            "quantity": 967
+          }
+        },
+        "Lot:LOT-00002": {
+          "acel:lifecycle": "updated",
+          "acel:changed": {}
+        }
+      },
+      "rcmap": {
+        "usesRawMaterial:RawMaterialBatch:LOT-00002-RM2->Lot:LOT-00002": "created"
+      }
+    },
+    "e10": {
+      "acel:activity": "QualityControlApproved",
+      "acel:timestamp": 1700149844,
+      "vmap": {
+        "blocknum": 11,
+        "resource": "e344f87a39912e0a4a99ba15dbb5e00791cdddc9fa7d4d15913088a2f4559010"
+      },
+      "omap": [
+        "Lot:LOT-00002"
+      ],
+      "rmap": [],
+      "ocmap": {
+        "Lot:LOT-00002": {
+          "acel:lifecycle": "updated",
+          "acel:changed": {
+            "status": "qc_approved"
+          }
+        }
+      },
+      "rcmap": {}
+    },
+    "e11": {
+      "acel:activity": "LotCreated",
+      "acel:timestamp": 1700217253,
+      "vmap": {
+        "blocknum": 12,
+        "resource": "dab1c2c58ded347974942c5ef9266ec72c1f51dda1401d55b404fffdbb75e311"
+      },
+      "omap": [
+        "Lot:LOT-00003"
+      ],
+      "rmap": [],
+      "ocmap": {
+        "Lot:LOT-00003": {
+          "acel:lifecycle": "created",
+          "acel:changed": {
+            "lotId": "LOT-00003",
+            "product": "Paracetamol API",
+            "quantity": 3600,
+            "manufacturer": "PharmaGen",
+            "status": "created"
+          }
+        }
+      },
+      "rcmap": {}
+    },
+    "e12": {
+      "acel:activity": "RawMaterialReceived",
+      "acel:timestamp": 1700217913,
+      "vmap": {
+        "blocknum": 13,
+        "resource": "760c32bc3d05095e55896e3cba4b0e8168a3bb5efd537d6b93d84dc56fa4e405"
+      },
+      "omap": [
+        "RawMaterialBatch:LOT-00003-RM0",
+        "Lot:LOT-00003"
+      ],
+      "rmap": [
+        "usesRawMaterial:RawMaterialBatch:LOT-00003-RM0->Lot:LOT-00003"
+      ],
+      "ocmap": {
+        "RawMaterialBatch:LOT-00003-RM0": {
+          "acel:lifecycle": "created",
+          "acel:changed": {
+            "batchId": "LOT-00003-RM0",
+            "materialName": "Amoxicillin API",
+            "supplier": "RawChem Co",
+            "quantity": 296
+          }
+        },
+        "Lot:LOT-00003": {
+          "acel:lifecycle": "updated",
+          "acel:changed": {}
+        }
+      },
+      "rcmap": {
+        "usesRawMaterial:RawMaterialBatch:LOT-00003-RM0->Lot:LOT-00003": "created"
+      }
+    },
+    "e13": {
+      "acel:activity": "RawMaterialReceived",
+      "acel:timestamp": 1700219415,
+      "vmap": {
+        "blocknum": 14,
+        "resource": "7d801e3021c7352982b6540d60306bec9814d4b0b296f0479bac4ed7d5636ca5"
+      },
+      "omap": [
+        "RawMaterialBatch:LOT-00003-RM1",
+        "Lot:LOT-00003"
+      ],
+      "rmap": [
+        "usesRawMaterial:RawMaterialBatch:LOT-00003-RM1->Lot:LOT-00003"
+      ],
+      "ocmap": {
+        "RawMaterialBatch:LOT-00003-RM1": {
+          "acel:lifecycle": "created",
+          "acel:changed": {
+            "batchId": "LOT-00003-RM1",
+            "materialName": "Paracetamol API",
+            "supplier": "ChemSource Ltd",
+            "quantity": 777
+          }
+        },
+        "Lot:LOT-00003": {
+          "acel:lifecycle": "updated",
+          "acel:changed": {}
+        }
+      },
+      "rcmap": {
+        "usesRawMaterial:RawMaterialBatch:LOT-00003-RM1->Lot:LOT-00003": "created"
+      }
+    },
+    "e14": {
+      "acel:activity": "RawMaterialReceived",
+      "acel:timestamp": 1700219941,
+      "vmap": {
+        "blocknum": 15,
+        "resource": "a07bc9bf2d6d10cc2660d2cd12d62b3db74137051bf2247d606c768447128b7f"
+      },
+      "omap": [
+        "RawMaterialBatch:LOT-00003-RM2",
+        "Lot:LOT-00003"
+      ],
+      "rmap": [
+        "usesRawMaterial:RawMaterialBatch:LOT-00003-RM2->Lot:LOT-00003"
+      ],
+      "ocmap": {
+        "RawMaterialBatch:LOT-00003-RM2": {
+          "acel:lifecycle": "created",
+          "acel:changed": {
+            "batchId": "LOT-00003-RM2",
+            "materialName": "Amoxicillin API",
+            "supplier": "ChemSource Ltd",
+            "quantity": 975
+          }
+        },
+        "Lot:LOT-00003": {
+          "acel:lifecycle": "updated",
+          "acel:changed": {}
+        }
+      },
+      "rcmap": {
+        "usesRawMaterial:RawMaterialBatch:LOT-00003-RM2->Lot:LOT-00003": "created"
+      }
+    },
+    "e15": {
+      "acel:activity": "QualityControlRejected",
+      "acel:timestamp": 1700224494,
+      "vmap": {
+        "blocknum": 16,
+        "resource": "c1d198ce301a9e71fb4fe92d6f9ffc28641c5685cc40947fbedf45a31532d7c5"
+      },
+      "omap": [
+        "Lot:LOT-00003"
+      ],
+      "rmap": [],
+      "ocmap": {
+        "Lot:LOT-00003": {
+          "acel:lifecycle": "updated",
+          "acel:changed": {
+            "status": "qc_rejected"
+          }
+        }
+      },
+      "rcmap": {}
+    },
+    "e16": {
+      "acel:activity": "LotCreated",
+      "acel:timestamp": 1700224927,
+      "vmap": {
+        "blocknum": 17,
+        "resource": "2ab6ff2b9e462a7ee9f7b2d30298375acaea6ec8da2e661362e95cdfc4bef32f"
+      },
+      "omap": [
+        "Lot:LOT-00004"
+      ],
+      "rmap": [],
+      "ocmap": {
+        "Lot:LOT-00004": {
+          "acel:lifecycle": "created",
+          "acel:changed": {
+            "lotId": "LOT-00004",
+            "product": "Amoxicillin API",
+            "quantity": 4214,
+            "manufacturer": "Biolab-TN",
+            "status": "created"
+          }
+        }
+      },
+      "rcmap": {}
+    },
+    "e17": {
+      "acel:activity": "RawMaterialReceived",
+      "acel:timestamp": 1700225745,
+      "vmap": {
+        "blocknum": 18,
+        "resource": "2797d9421b50cf4c388401902c4880e364564635418406072bf0d49644d9fcc7"
+      },
+      "omap": [
+        "RawMaterialBatch:LOT-00004-RM0",
+        "Lot:LOT-00004"
+      ],
+      "rmap": [
+        "usesRawMaterial:RawMaterialBatch:LOT-00004-RM0->Lot:LOT-00004"
+      ],
+      "ocmap": {
+        "RawMaterialBatch:LOT-00004-RM0": {
+          "acel:lifecycle": "created",
+          "acel:changed": {
+            "batchId": "LOT-00004-RM0",
+            "materialName": "Amoxicillin API",
+            "supplier": "ChemSource Ltd",
+            "quantity": 786
+          }
+        },
+        "Lot:LOT-00004": {
+          "acel:lifecycle": "updated",
+          "acel:changed": {}
+        }
+      },
+      "rcmap": {
+        "usesRawMaterial:RawMaterialBatch:LOT-00004-RM0->Lot:LOT-00004": "created"
+      }
+    },
+    "e18": {
+      "acel:activity": "QualityControlApproved",
+      "acel:timestamp": 1700230438,
+      "vmap": {
+        "blocknum": 19,
+        "resource": "801fb304fa19f8ce1647e88615d46c0fa28f47047f4b47de5845476ed48dc097"
+      },
+      "omap": [
+        "Lot:LOT-00004"
+      ],
+      "rmap": [],
+      "ocmap": {
+        "Lot:LOT-00004": {
+          "acel:lifecycle": "updated",
+          "acel:changed": {
+            "status": "qc_approved"
+          }
+        }
+      },
+      "rcmap": {}
+    }
+  }
+}

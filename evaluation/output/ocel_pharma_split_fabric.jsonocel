@@ -1,0 +1,382 @@
+{
+  "ocel:global-log": {
+    "ocel:version": "1.0",
+    "ocel:ordering": "timestamp",
+    "ocel:attribute-names": [
+      "batchId",
+      "blocknum",
+      "lotId",
+      "manufacturer",
+      "materialName",
+      "product",
+      "quantity",
+      "resource",
+      "status",
+      "supplier"
+    ],
+    "ocel:object-types": [
+      "Lot",
+      "RawMaterialBatch",
+      "Shipment"
+    ]
+  },
+  "ocel:global-event": {
+    "ocel:activity": "__INVALID__"
+  },
+  "ocel:global-object": {
+    "ocel:type": "__INVALID__"
+  },
+  "ocel:events": {
+    "e0": {
+      "ocel:activity": "LotCreated",
+      "ocel:timestamp": "2023-11-14T22:19:01Z",
+      "ocel:omap": [
+        "Lot:LOT-00000"
+      ],
+      "ocel:vmap": {
+        "blocknum": 1,
+        "resource": "9a44a2badce1aa6a2ee0a6920bfc979b975a0ee045dd089cf8f532afe8837953"
+      }
+    },
+    "e1": {
+      "ocel:activity": "RawMaterialReceived",
+      "ocel:timestamp": "2023-11-14T22:27:38Z",
+      "ocel:omap": [
+        "RawMaterialBatch:LOT-00000-RM0",
+        "Lot:LOT-00000"
+      ],
+      "ocel:vmap": {
+        "blocknum": 2,
+        "resource": "226ad483de5d617b6b3c5bb2bf9e4529a0e5600a92f915148b83d202afd6fb24"
+      }
+    },
+    "e2": {
+      "ocel:activity": "QualityControlApproved",
+      "ocel:timestamp": "2023-11-15T00:13:49Z",
+      "ocel:omap": [
+        "Lot:LOT-00000"
+      ],
+      "ocel:vmap": {
+        "blocknum": 3,
+        "resource": "a99beb77ed2af33a2f7e9e9a9e6cae5f968fb9e4a2e11f7723bfee60fd8eea25"
+      }
+    },
+    "e3": {
+      "ocel:activity": "LotCreated",
+      "ocel:timestamp": "2023-11-15T17:28:50Z",
+      "ocel:omap": [
+        "Lot:LOT-00001"
+      ],
+      "ocel:vmap": {
+        "blocknum": 4,
+        "resource": "7dc4c74d504c34784d4b13adee6814411db5e3708ff20907990cc148c0a00b3d"
+      }
+    },
+    "e4": {
+      "ocel:activity": "RawMaterialReceived",
+      "ocel:timestamp": "2023-11-15T17:47:04Z",
+      "ocel:omap": [
+        "RawMaterialBatch:LOT-00001-RM0",
+        "Lot:LOT-00001"
+      ],
+      "ocel:vmap": {
+        "blocknum": 5,
+        "resource": "55aa56586d2ee36ed8353eb2270c160f84338894cefa2621d15ed3ed13c27deb"
+      }
+    },
+    "e5": {
+      "ocel:activity": "QualityControlApproved",
+      "ocel:timestamp": "2023-11-15T19:35:56Z",
+      "ocel:omap": [
+        "Lot:LOT-00001"
+      ],
+      "ocel:vmap": {
+        "blocknum": 6,
+        "resource": "da837da6e0eb68ae15270a9af2f4498522b486c35e770a0204db66af4a013cc5"
+      }
+    },
+    "e6": {
+      "ocel:activity": "LotCreated",
+      "ocel:timestamp": "2023-11-16T13:49:33Z",
+      "ocel:omap": [
+        "Lot:LOT-00002"
+      ],
+      "ocel:vmap": {
+        "blocknum": 7,
+        "resource": "bb3cc48183399351ccaf24793135d7c069a334ca4b67d89e67e24ad8987d3b8c"
+      }
+    },
+    "e7": {
+      "ocel:activity": "RawMaterialReceived",
+      "ocel:timestamp": "2023-11-16T14:04:58Z",
+      "ocel:omap": [
+        "RawMaterialBatch:LOT-00002-RM0",
+        "Lot:LOT-00002"
+      ],
+      "ocel:vmap": {
+        "blocknum": 8,
+        "resource": "541afb7750e01978d769eba655fe68ad0643d89180f225ea7ce79944762be6e1"
+      }
+    },
+    "e8": {
+      "ocel:activity": "RawMaterialReceived",
+      "ocel:timestamp": "2023-11-16T14:13:18Z",
+      "ocel:omap": [
+        "RawMaterialBatch:LOT-00002-RM1",
+        "Lot:LOT-00002"
+      ],
+      "ocel:vmap": {
+        "blocknum": 9,
+        "resource": "c9dd150ab6ebb757798067331b827adbb844e5a67dfd84301a6ec9d23626ae93"
+      }
+    },
+    "e9": {
+      "ocel:activity": "RawMaterialReceived",
+      "ocel:timestamp": "2023-11-16T14:27:16Z",
+      "ocel:omap": [
+        "RawMaterialBatch:LOT-00002-RM2",
+        "Lot:LOT-00002"
+      ],
+      "ocel:vmap": {
+        "blocknum": 10,
+        "resource": "37d5c305023e02a633083905f7e7e82331a114f166ae2e47034aca9af99ab741"
+      }
+    },
+    "e10": {
+      "ocel:activity": "QualityControlApproved",
+      "ocel:timestamp": "2023-11-16T15:50:44Z",
+      "ocel:omap": [
+        "Lot:LOT-00002"
+      ],
+      "ocel:vmap": {
+        "blocknum": 11,
+        "resource": "e344f87a39912e0a4a99ba15dbb5e00791cdddc9fa7d4d15913088a2f4559010"
+      }
+    },
+    "e11": {
+      "ocel:activity": "LotCreated",
+      "ocel:timestamp": "2023-11-17T10:34:13Z",
+      "ocel:omap": [
+        "Lot:LOT-00003"
+      ],
+      "ocel:vmap": {
+        "blocknum": 12,
+        "resource": "dab1c2c58ded347974942c5ef9266ec72c1f51dda1401d55b404fffdbb75e311"
+      }
+    },
+    "e12": {
+      "ocel:activity": "RawMaterialReceived",
+      "ocel:timestamp": "2023-11-17T10:45:13Z",
+      "ocel:omap": [
+        "RawMaterialBatch:LOT-00003-RM0",
+        "Lot:LOT-00003"
+      ],
+      "ocel:vmap": {
+        "blocknum": 13,
+        "resource": "760c32bc3d05095e55896e3cba4b0e8168a3bb5efd537d6b93d84dc56fa4e405"
+      }
+    },
+    "e13": {
+      "ocel:activity": "RawMaterialReceived",
+      "ocel:timestamp": "2023-11-17T11:10:15Z",
+      "ocel:omap": [
+        "RawMaterialBatch:LOT-00003-RM1",
+        "Lot:LOT-00003"
+      ],
+      "ocel:vmap": {
+        "blocknum": 14,
+        "resource": "7d801e3021c7352982b6540d60306bec9814d4b0b296f0479bac4ed7d5636ca5"
+      }
+    },
+    "e14": {
+      "ocel:activity": "RawMaterialReceived",
+      "ocel:timestamp": "2023-11-17T11:19:01Z",
+      "ocel:omap": [
+        "RawMaterialBatch:LOT-00003-RM2",
+        "Lot:LOT-00003"
+      ],
+      "ocel:vmap": {
+        "blocknum": 15,
+        "resource": "a07bc9bf2d6d10cc2660d2cd12d62b3db74137051bf2247d606c768447128b7f"
+      }
+    },
+    "e15": {
+      "ocel:activity": "QualityControlRejected",
+      "ocel:timestamp": "2023-11-17T12:34:54Z",
+      "ocel:omap": [
+        "Lot:LOT-00003"
+      ],
+      "ocel:vmap": {
+        "blocknum": 16,
+        "resource": "c1d198ce301a9e71fb4fe92d6f9ffc28641c5685cc40947fbedf45a31532d7c5"
+      }
+    },
+    "e16": {
+      "ocel:activity": "LotCreated",
+      "ocel:timestamp": "2023-11-17T12:42:07Z",
+      "ocel:omap": [
+        "Lot:LOT-00004"
+      ],
+      "ocel:vmap": {
+        "blocknum": 17,
+        "resource": "2ab6ff2b9e462a7ee9f7b2d30298375acaea6ec8da2e661362e95cdfc4bef32f"
+      }
+    },
+    "e17": {
+      "ocel:activity": "RawMaterialReceived",
+      "ocel:timestamp": "2023-11-17T12:55:45Z",
+      "ocel:omap": [
+        "RawMaterialBatch:LOT-00004-RM0",
+        "Lot:LOT-00004"
+      ],
+      "ocel:vmap": {
+        "blocknum": 18,
+        "resource": "2797d9421b50cf4c388401902c4880e364564635418406072bf0d49644d9fcc7"
+      }
+    },
+    "e18": {
+      "ocel:activity": "QualityControlApproved",
+      "ocel:timestamp": "2023-11-17T14:13:58Z",
+      "ocel:omap": [
+        "Lot:LOT-00004"
+      ],
+      "ocel:vmap": {
+        "blocknum": 19,
+        "resource": "801fb304fa19f8ce1647e88615d46c0fa28f47047f4b47de5845476ed48dc097"
+      }
+    }
+  },
+  "ocel:objects": {
+    "Lot:LOT-00000": {
+      "ocel:type": "Lot",
+      "ocel:ovmap": {
+        "lotId": "LOT-00000",
+        "product": "Paracetamol API",
+        "quantity": 704,
+        "manufacturer": "PharmaGen",
+        "status": "qc_approved"
+      }
+    },
+    "RawMaterialBatch:LOT-00000-RM0": {
+      "ocel:type": "RawMaterialBatch",
+      "ocel:ovmap": {
+        "batchId": "LOT-00000-RM0",
+        "materialName": "Excipient-X",
+        "supplier": "RawChem Co",
+        "quantity": 204
+      }
+    },
+    "Lot:LOT-00001": {
+      "ocel:type": "Lot",
+      "ocel:ovmap": {
+        "lotId": "LOT-00001",
+        "product": "Paracetamol API",
+        "quantity": 1267,
+        "manufacturer": "Sanofi-TN",
+        "status": "qc_approved"
+      }
+    },
+    "RawMaterialBatch:LOT-00001-RM0": {
+      "ocel:type": "RawMaterialBatch",
+      "ocel:ovmap": {
+        "batchId": "LOT-00001-RM0",
+        "materialName": "Paracetamol API",
+        "supplier": "RawChem Co",
+        "quantity": 303
+      }
+    },
+    "Lot:LOT-00002": {
+      "ocel:type": "Lot",
+      "ocel:ovmap": {
+        "lotId": "LOT-00002",
+        "product": "Amoxicillin API",
+        "quantity": 553,
+        "manufacturer": "PharmaGen",
+        "status": "qc_approved"
+      }
+    },
+    "RawMaterialBatch:LOT-00002-RM0": {
+      "ocel:type": "RawMaterialBatch",
+      "ocel:ovmap": {
+        "batchId": "LOT-00002-RM0",
+        "materialName": "Amoxicillin API",
+        "supplier": "APIWorks",
+        "quantity": 259
+      }
+    },
+    "RawMaterialBatch:LOT-00002-RM1": {
+      "ocel:type": "RawMaterialBatch",
+      "ocel:ovmap": {
+        "batchId": "LOT-00002-RM1",
+        "materialName": "Amoxicillin API",
+        "supplier": "ChemSource Ltd",
+        "quantity": 194
+      }
+    },
+    "RawMaterialBatch:LOT-00002-RM2": {
+      "ocel:type": "RawMaterialBatch",
+      "ocel:ovmap": {
+        "batchId": "LOT-00002-RM2",
+        "materialName": "Paracetamol API",
+        "supplier": "APIWorks",
+        "quantity": 967
+      }
+    },
+    "Lot:LOT-00003": {
+      "ocel:type": "Lot",
+      "ocel:ovmap": {
+        "lotId": "LOT-00003",
+        "product": "Paracetamol API",
+        "quantity": 3600,
+        "manufacturer": "PharmaGen",
+        "status": "qc_rejected"
+      }
+    },
+    "RawMaterialBatch:LOT-00003-RM0": {
+      "ocel:type": "RawMaterialBatch",
+      "ocel:ovmap": {
+        "batchId": "LOT-00003-RM0",
+        "materialName": "Amoxicillin API",
+        "supplier": "RawChem Co",
+        "quantity": 296
+      }
+    },
+    "RawMaterialBatch:LOT-00003-RM1": {
+      "ocel:type": "RawMaterialBatch",
+      "ocel:ovmap": {
+        "batchId": "LOT-00003-RM1",
+        "materialName": "Paracetamol API",
+        "supplier": "ChemSource Ltd",
+        "quantity": 777
+      }
+    },
+    "RawMaterialBatch:LOT-00003-RM2": {
+      "ocel:type": "RawMaterialBatch",
+      "ocel:ovmap": {
+        "batchId": "LOT-00003-RM2",
+        "materialName": "Amoxicillin API",
+        "supplier": "ChemSource Ltd",
+        "quantity": 975
+      }
+    },
+    "Lot:LOT-00004": {
+      "ocel:type": "Lot",
+      "ocel:ovmap": {
+        "lotId": "LOT-00004",
+        "product": "Amoxicillin API",
+        "quantity": 4214,
+        "manufacturer": "Biolab-TN",
+        "status": "qc_approved"
+      }
+    },
+    "RawMaterialBatch:LOT-00004-RM0": {
+      "ocel:type": "RawMaterialBatch",
+      "ocel:ovmap": {
+        "batchId": "LOT-00004-RM0",
+        "materialName": "Amoxicillin API",
+        "supplier": "ChemSource Ltd",
+        "quantity": 786
+      }
+    }
+  }
+}

@@ -1,0 +1,112 @@
+{
+  "Platforms": {
+    "ethereum": {
+      "BC reference": {
+        "NAME": "Ethereum",
+        "BLOCKCHAINID": "PharmaChain-Testnet"
+      },
+      "SC reference": {
+        "CONTRACTID": "0xPHARMA0000000000000000000000000000001",
+        "startBlock": 1,
+        "endBlock": 500000
+      }
+    },
+    "fabric": {
+      "BC reference": {
+        "NAME": "Hyperledger Fabric",
+        "BLOCKCHAINID": "PharmaChannel"
+      },
+      "SC reference": {
+        "CONTRACTID": "pharmatrace"
+      }
+    }
+  },
+
+  "Correlation": {
+    "caseKeyField": "lotId",
+    "artifactTypes": ["Lot"]
+  },
+
+  "Artifacts": {
+    "Lot": {
+      "attributes": ["lotId", "product", "quantity", "manufacturer", "status"]
+    },
+    "RawMaterialBatch": {
+      "attributes": ["batchId", "materialName", "supplier", "quantity"]
+    },
+    "Shipment": {
+      "attributes": ["shipmentId", "carrier", "destination", "status"]
+    }
+  },
+
+  "Relations": {
+    "usesRawMaterial": {
+      "source": "RawMaterialBatch",
+      "target": "Lot",
+      "cardinality": "many2one"
+    },
+    "hasShipment": {
+      "source": "Lot",
+      "target": "Shipment",
+      "cardinality": "one2one"
+    }
+  },
+
+  "Events": {
+    "LotCreated": {
+      "activity": "LotCreated",
+      "platform": "fabric",
+      "objects": [
+        { "type": "Lot", "idField": "lotId", "attributes": ["lotId", "product", "quantity", "manufacturer", "status"], "lifecycle": "created" }
+      ],
+      "relations": []
+    },
+    "RawMaterialReceived": {
+      "activity": "RawMaterialReceived",
+      "platform": "fabric",
+      "objects": [
+        { "type": "RawMaterialBatch", "idField": "batchId", "attributes": ["batchId", "materialName", "supplier", "quantity"], "lifecycle": "created" },
+        { "type": "Lot", "idField": "lotId", "attributes": [], "lifecycle": "updated" }
+      ],
+      "relations": [
+        { "type": "usesRawMaterial", "sourceField": "batchId", "targetField": "lotId" }
+      ]
+    },
+    "QualityControlApproved": {
+      "activity": "QualityControlApproved",
+      "platform": "fabric",
+      "objects": [
+        { "type": "Lot", "idField": "lotId", "attributes": ["status"], "lifecycle": "updated" }
+      ],
+      "relations": []
+    },
+    "QualityControlRejected": {
+      "activity": "QualityControlRejected",
+      "platform": "fabric",
+      "objects": [
+        { "type": "Lot", "idField": "lotId", "attributes": ["status"], "lifecycle": "updated" }
+      ],
+      "relations": []
+    },
+    "LotShipped": {
+      "activity": "LotShipped",
+      "platform": "ethereum",
+      "objects": [
+        { "type": "Shipment", "idField": "shipmentId", "attributes": ["shipmentId", "carrier", "destination", "status"], "lifecycle": "created" },
+        { "type": "Lot", "idField": "lotId", "attributes": ["status"], "lifecycle": "updated" }
+      ],
+      "relations": [
+        { "type": "hasShipment", "sourceField": "lotId", "targetField": "shipmentId" }
+      ]
+    },
+    "LotDelivered": {
+      "activity": "LotDelivered",
+      "platform": "ethereum",
+      "objects": [
+        { "type": "Shipment", "idField": "shipmentId", "attributes": ["status"], "lifecycle": "updated" },
+        { "type": "Lot", "idField": "lotId", "attributes": ["status"], "lifecycle": "updated" }
+      ],
+      "relations": []
+    }
+  }
+}

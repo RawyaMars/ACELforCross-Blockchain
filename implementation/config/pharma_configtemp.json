@@ -1,0 +1,298 @@
+{
+  "ConfigTemp": {
+
+    "BC reference": [
+      {
+        "Name": "Hyperledger Fabric",
+        "BlockchainID": "PharmaChannel",
+
+        "SC reference": [
+          {
+            "ContractID": "pharmatrace-cc",
+            "BlockRange": { "StartBlock": 1, "EndBlock": 500000 },
+
+            "Artifact": [
+              {
+                "Name": "Lot",
+                "Attribute": [
+                  { "Name": "lotId", "Type": "string", "isStatic": true },
+                  { "Name": "product", "Type": "string", "isStatic": true },
+                  { "Name": "quantity", "Type": "integer", "isStatic": true },
+                  { "Name": "manufacturer", "Type": "string", "isStatic": true },
+                  { "Name": "status", "Type": "string", "isStatic": false }
+                ]
+              },
+              {
+                "Name": "RawMaterialBatch",
+                "Attribute": [
+                  { "Name": "batchId", "Type": "string", "isStatic": true },
+                  { "Name": "materialName", "Type": "string", "isStatic": true },
+                  { "Name": "supplier", "Type": "string", "isStatic": true },
+                  { "Name": "quantity", "Type": "integer", "isStatic": true }
+                ]
+              }
+            ],
+
+            "Relation": [
+              {
+                "Name": "usesRawMaterial",
+                "Cardinality": "many2one",
+                "Source": { "Artifact": "RawMaterialBatch", "isStatic": true },
+                "Target": { "Artifact": "Lot", "isStatic": true }
+              }
+            ],
+
+            "SC Event Topic": [
+              {
+                "Name": "LotCreated",
+                "Parameter": [
+                  { "Name": "lotId", "Type": "string" },
+                  { "Name": "product", "Type": "string" },
+                  { "Name": "quantity", "Type": "uint256" },
+                  { "Name": "manufacturer", "Type": "string" }
+                ],
+                "Event Mapping": {
+                  "ACEL Event Mapping": {
+                    "Activity": "LotCreated",
+                    "Timestamp": "blockTimestamp",
+                    "Attributes Mapping": [
+                      { "Parameter": "lotId", "Attribute": "lotId" },
+                      { "Parameter": "product", "Attribute": "product" },
+                      { "Parameter": "quantity", "Attribute": "quantity" },
+                      { "Parameter": "manufacturer", "Attribute": "manufacturer" }
+                    ]
+                  },
+                  "ACEL Object Mapping": [
+                    {
+                      "Object Type": "Lot",
+                      "Lifecycle": "created",
+                      "Attributes Mapping": [
+                        { "Parameter": "lotId", "Attribute": "lotId" },
+                        { "Parameter": "product", "Attribute": "product" },
+                        { "Parameter": "quantity", "Attribute": "quantity" },
+                        { "Parameter": "manufacturer", "Attribute": "manufacturer" }
+                      ]
+                    }
+                  ],
+                  "ACEL Relation Mapping": []
+                }
+              },
+              {
+                "Name": "RawMaterialReceived",
+                "Parameter": [
+                  { "Name": "lotId", "Type": "string" },
+                  { "Name": "batchId", "Type": "string" },
+                  { "Name": "materialName", "Type": "string" },
+                  { "Name": "supplier", "Type": "string" },
+                  { "Name": "quantity", "Type": "uint256" }
+                ],
+                "Event Mapping": {
+                  "ACEL Event Mapping": {
+                    "Activity": "RawMaterialReceived",
+                    "Timestamp": "blockTimestamp",
+                    "Attributes Mapping": [
+                      { "Parameter": "batchId", "Attribute": "batchId" },
+                      { "Parameter": "materialName", "Attribute": "materialName" },
+                      { "Parameter": "supplier", "Attribute": "supplier" },
+                      { "Parameter": "quantity", "Attribute": "quantity" }
+                    ]
+                  },
+                  "ACEL Object Mapping": [
+                    {
+                      "Object Type": "RawMaterialBatch",
+                      "Lifecycle": "created",
+                      "Attributes Mapping": [
+                        { "Parameter": "batchId", "Attribute": "batchId" },
+                        { "Parameter": "materialName", "Attribute": "materialName" },
+                        { "Parameter": "supplier", "Attribute": "supplier" },
+                        { "Parameter": "quantity", "Attribute": "quantity" }
+                      ]
+                    },
+                    {
+                      "Object Type": "Lot",
+                      "Lifecycle": "updated",
+                      "Attributes Mapping": []
+                    }
+                  ],
+                  "ACEL Relation Mapping": [
+                    {
+                      "RelationType": "usesRawMaterial",
+                      "Source": "RawMaterialBatch",
+                      "Targets": [
+                        { "Artifact": "Lot", "ChangeStatus": "unchanged" }
+                      ]
+                    }
+                  ]
+                }
+              },
+              {
+                "Name": "QualityControlApproved",
+                "Parameter": [
+                  { "Name": "lotId", "Type": "string" }
+                ],
+                "Event Mapping": {
+                  "ACEL Event Mapping": {
+                    "Activity": "QualityControlApproved",
+                    "Timestamp": "blockTimestamp",
+                    "Attributes Mapping": []
+                  },
+                  "ACEL Object Mapping": [
+                    {
+                      "Object Type": "Lot",
+                      "Lifecycle": "updated",
+                      "Attributes Mapping": []
+                    }
+                  ],
+                  "ACEL Relation Mapping": []
+                }
+              },
+              {
+                "Name": "QualityControlRejected",
+                "Parameter": [
+                  { "Name": "lotId", "Type": "string" }
+                ],
+                "Event Mapping": {
+                  "ACEL Event Mapping": {
+                    "Activity": "QualityControlRejected",
+                    "Timestamp": "blockTimestamp",
+                    "Attributes Mapping": []
+                  },
+                  "ACEL Object Mapping": [
+                    {
+                      "Object Type": "Lot",
+                      "Lifecycle": "updated",
+                      "Attributes Mapping": []
+                    }
+                  ],
+                  "ACEL Relation Mapping": []
+                }
+              }
+            ]
+          }
+        ]
+      },
+
+      {
+        "Name": "Ethereum",
+        "BlockchainID": "PharmaChain-Testnet",
+
+        "SC reference": [
+          {
+            "ContractID": "0xPHARMA0000000000000000000000000000001",
+            "BlockRange": { "StartBlock": 1, "EndBlock": 500000 },
+
+            "Artifact": [
+              {
+                "Name": "Lot",
+                "Attribute": [
+                  { "Name": "lotId", "Type": "string", "isStatic": true },
+                  { "Name": "status", "Type": "string", "isStatic": false }
+                ]
+              },
+              {
+                "Name": "Shipment",
+                "Attribute": [
+                  { "Name": "shipmentId", "Type": "string", "isStatic": true },
+                  { "Name": "carrier", "Type": "string", "isStatic": true },
+                  { "Name": "destination", "Type": "string", "isStatic": true },
+                  { "Name": "status", "Type": "string", "isStatic": false }
+                ]
+              }
+            ],
+
+            "Relation": [
+              {
+                "Name": "hasShipment",
+                "Cardinality": "one2one",
+                "Source": { "Artifact": "Lot", "isStatic": true },
+                "Target": { "Artifact": "Shipment", "isStatic": true }
+              }
+            ],
+
+            "SC Event Topic": [
+              {
+                "Name": "LotShipped",
+                "Parameter": [
+                  { "Name": "lotId", "Type": "string" },
+                  { "Name": "shipmentId", "Type": "string" },
+                  { "Name": "carrier", "Type": "string" },
+                  { "Name": "destination", "Type": "string" }
+                ],
+                "Event Mapping": {
+                  "ACEL Event Mapping": {
+                    "Activity": "LotShipped",
+                    "Timestamp": "blockTimestamp",
+                    "Attributes Mapping": [
+                      { "Parameter": "shipmentId", "Attribute": "shipmentId" },
+                      { "Parameter": "carrier", "Attribute": "carrier" },
+                      { "Parameter": "destination", "Attribute": "destination" }
+                    ]
+                  },
+                  "ACEL Object Mapping": [
+                    {
+                      "Object Type": "Shipment",
+                      "Lifecycle": "created",
+                      "Attributes Mapping": [
+                        { "Parameter": "shipmentId", "Attribute": "shipmentId" },
+                        { "Parameter": "carrier", "Attribute": "carrier" },
+                        { "Parameter": "destination", "Attribute": "destination" }
+                      ]
+                    },
+                    {
+                      "Object Type": "Lot",
+                      "Lifecycle": "updated",
+                      "Attributes Mapping": []
+                    }
+                  ],
+                  "ACEL Relation Mapping": [
+                    {
+                      "RelationType": "hasShipment",
+                      "Source": "Lot",
+                      "Targets": [
+                        { "Artifact": "Shipment", "ChangeStatus": "created" }
+                      ]
+                    }
+                  ]
+                }
+              },
+              {
+                "Name": "LotDelivered",
+                "Parameter": [
+                  { "Name": "lotId", "Type": "string" },
+                  { "Name": "shipmentId", "Type": "string" }
+                ],
+                "Event Mapping": {
+                  "ACEL Event Mapping": {
+                    "Activity": "LotDelivered",
+                    "Timestamp": "blockTimestamp",
+                    "Attributes Mapping": []
+                  },
+                  "ACEL Object Mapping": [
+                    {
+                      "Object Type": "Shipment",
+                      "Lifecycle": "updated",
+                      "Attributes Mapping": []
+                    },
+                    {
+                      "Object Type": "Lot",
+                      "Lifecycle": "updated",
+                      "Attributes Mapping": []
+                    }
+                  ],
+                  "ACEL Relation Mapping": []
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ],
+
+    "Correlation": [
+      {
+        "caseKeyField": "lotId",
+        "correlates": ["Lot", "Shipment"]
+      }
+    ]
+  }
+}

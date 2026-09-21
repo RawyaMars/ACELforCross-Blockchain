@@ -1,0 +1,784 @@
+{
+  "ocel:global-log": {
+    "ocel:version": "1.0",
+    "ocel:ordering": "timestamp",
+    "ocel:attribute-names": [
+      "batchId",
+      "blocknum",
+      "carrier",
+      "chainSource",
+      "chains",
+      "crossChainStatus",
+      "destination",
+      "lotId",
+      "manufacturer",
+      "materialName",
+      "product",
+      "proofId",
+      "quantity",
+      "resource",
+      "shipmentId",
+      "source",
+      "status",
+      "supplier",
+      "transactions"
+    ],
+    "ocel:object-types": [
+      "Lot",
+      "RawMaterialBatch",
+      "Shipment"
+    ]
+  },
+  "ocel:global-event": {
+    "ocel:activity": "__INVALID__"
+  },
+  "ocel:global-object": {
+    "ocel:type": "__INVALID__"
+  },
+  "ocel:events": {
+    "e0": {
+      "ocel:activity": "LotCreated",
+      "ocel:timestamp": "2023-11-14T22:19:01Z",
+      "ocel:omap": [
+        "Lot:LOT-00000"
+      ],
+      "ocel:vmap": {
+        "blocknum": 1,
+        "resource": "9a44a2badce1aa6a2ee0a6920bfc979b975a0ee045dd089cf8f532afe8837953",
+        "chainSource": "fabric"
+      }
+    },
+    "e1": {
+      "ocel:activity": "RawMaterialReceived",
+      "ocel:timestamp": "2023-11-14T22:27:38Z",
+      "ocel:omap": [
+        "RawMaterialBatch:LOT-00000-RM0",
+        "Lot:LOT-00000"
+      ],
+      "ocel:vmap": {
+        "blocknum": 2,
+        "resource": "226ad483de5d617b6b3c5bb2bf9e4529a0e5600a92f915148b83d202afd6fb24",
+        "chainSource": "fabric"
+      }
+    },
+    "e2": {
+      "ocel:activity": "QualityControlApproved",
+      "ocel:timestamp": "2023-11-15T00:13:49Z",
+      "ocel:omap": [
+        "Lot:LOT-00000"
+      ],
+      "ocel:vmap": {
+        "blocknum": 3,
+        "resource": "a99beb77ed2af33a2f7e9e9a9e6cae5f968fb9e4a2e11f7723bfee60fd8eea25",
+        "chainSource": "fabric"
+      }
+    },
+    "e3": {
+      "ocel:activity": "LotShipped",
+      "ocel:timestamp": "2023-11-15T01:02:25Z",
+      "ocel:omap": [
+        "Shipment:LOT-00000-SHIP",
+        "Lot:LOT-00000"
+      ],
+      "ocel:vmap": {
+        "blocknum": 1,
+        "resource": "0x5e9670bb6f50cd3295cf21076784a4b5c8bf55a3d270d1413bdd59274ab23b68",
+        "chainSource": "ethereum"
+      }
+    },
+    "e4": {
+      "ocel:activity": "CrossChainHandoffVerified",
+      "ocel:timestamp": "2023-11-15T17:24:07Z",
+      "ocel:omap": [
+        "Lot:LOT-00000"
+      ],
+      "ocel:vmap": {
+        "source": "cross-chain-proof",
+        "resource": "cross-chain-proof",
+        "chains": [
+          "ethereum",
+          "fabric"
+        ],
+        "transactions": [
+          {
+            "chainSource": "fabric",
+            "activity": "LotCreated",
+            "timestamp": 1700000341,
+            "blockNumber": 1,
+            "resource": "9a44a2badce1aa6a2ee0a6920bfc979b975a0ee045dd089cf8f532afe8837953"
+          },
+          {
+            "chainSource": "fabric",
+            "activity": "RawMaterialReceived",
+            "timestamp": 1700000858,
+            "blockNumber": 2,
+            "resource": "226ad483de5d617b6b3c5bb2bf9e4529a0e5600a92f915148b83d202afd6fb24"
+          },
+          {
+            "chainSource": "fabric",
+            "activity": "QualityControlApproved",
+            "timestamp": 1700007229,
+            "blockNumber": 3,
+            "resource": "a99beb77ed2af33a2f7e9e9a9e6cae5f968fb9e4a2e11f7723bfee60fd8eea25"
+          },
+          {
+            "chainSource": "ethereum",
+            "activity": "LotShipped",
+            "timestamp": 1700010145,
+            "blockNumber": 1,
+            "resource": "0x5e9670bb6f50cd3295cf21076784a4b5c8bf55a3d270d1413bdd59274ab23b68"
+          },
+          {
+            "chainSource": "ethereum",
+            "activity": "LotDelivered",
+            "timestamp": 1700069047,
+            "blockNumber": 2,
+            "resource": "0x8383d78520c1d2e90fe754eed02ec81e71c442f087e17c4d25539279f5e8cda9"
+          }
+        ],
+        "proofId": "transition_0",
+        "chainSource": "cross-chain-proof"
+      }
+    },
+    "e5": {
+      "ocel:activity": "LotDelivered",
+      "ocel:timestamp": "2023-11-15T17:24:07Z",
+      "ocel:omap": [
+        "Shipment:LOT-00000-SHIP",
+        "Lot:LOT-00000"
+      ],
+      "ocel:vmap": {
+        "blocknum": 2,
+        "resource": "0x8383d78520c1d2e90fe754eed02ec81e71c442f087e17c4d25539279f5e8cda9",
+        "chainSource": "ethereum"
+      }
+    },
+    "e6": {
+      "ocel:activity": "LotCreated",
+      "ocel:timestamp": "2023-11-15T17:28:50Z",
+      "ocel:omap": [
+        "Lot:LOT-00001"
+      ],
+      "ocel:vmap": {
+        "blocknum": 4,
+        "resource": "7dc4c74d504c34784d4b13adee6814411db5e3708ff20907990cc148c0a00b3d",
+        "chainSource": "fabric"
+      }
+    },
+    "e7": {
+      "ocel:activity": "RawMaterialReceived",
+      "ocel:timestamp": "2023-11-15T17:47:04Z",
+      "ocel:omap": [
+        "RawMaterialBatch:LOT-00001-RM0",
+        "Lot:LOT-00001"
+      ],
+      "ocel:vmap": {
+        "blocknum": 5,
+        "resource": "55aa56586d2ee36ed8353eb2270c160f84338894cefa2621d15ed3ed13c27deb",
+        "chainSource": "fabric"
+      }
+    },
+    "e8": {
+      "ocel:activity": "QualityControlApproved",
+      "ocel:timestamp": "2023-11-15T19:35:56Z",
+      "ocel:omap": [
+        "Lot:LOT-00001"
+      ],
+      "ocel:vmap": {
+        "blocknum": 6,
+        "resource": "da837da6e0eb68ae15270a9af2f4498522b486c35e770a0204db66af4a013cc5",
+        "chainSource": "fabric"
+      }
+    },
+    "e9": {
+      "ocel:activity": "LotShipped",
+      "ocel:timestamp": "2023-11-15T20:24:32Z",
+      "ocel:omap": [
+        "Shipment:LOT-00001-SHIP",
+        "Lot:LOT-00001"
+      ],
+      "ocel:vmap": {
+        "blocknum": 3,
+        "resource": "0xceeb7fd6202fabeaf8c44e5583e38d90d629d354ca81fe2fc55cdf3d6e67de19",
+        "chainSource": "ethereum"
+      }
+    },
+    "e10": {
+      "ocel:activity": "CrossChainHandoffVerified",
+      "ocel:timestamp": "2023-11-16T13:45:50Z",
+      "ocel:omap": [
+        "Lot:LOT-00001"
+      ],
+      "ocel:vmap": {
+        "source": "cross-chain-proof",
+        "resource": "cross-chain-proof",
+        "chains": [
+          "ethereum",
+          "fabric"
+        ],
+        "transactions": [
+          {
+            "chainSource": "fabric",
+            "activity": "LotCreated",
+            "timestamp": 1700069330,
+            "blockNumber": 4,
+            "resource": "7dc4c74d504c34784d4b13adee6814411db5e3708ff20907990cc148c0a00b3d"
+          },
+          {
+            "chainSource": "fabric",
+            "activity": "RawMaterialReceived",
+            "timestamp": 1700070424,
+            "blockNumber": 5,
+            "resource": "55aa56586d2ee36ed8353eb2270c160f84338894cefa2621d15ed3ed13c27deb"
+          },
+          {
+            "chainSource": "fabric",
+            "activity": "QualityControlApproved",
+            "timestamp": 1700076956,
+            "blockNumber": 6,
+            "resource": "da837da6e0eb68ae15270a9af2f4498522b486c35e770a0204db66af4a013cc5"
+          },
+          {
+            "chainSource": "ethereum",
+            "activity": "LotShipped",
+            "timestamp": 1700079872,
+            "blockNumber": 3,
+            "resource": "0xceeb7fd6202fabeaf8c44e5583e38d90d629d354ca81fe2fc55cdf3d6e67de19"
+          },
+          {
+            "chainSource": "ethereum",
+            "activity": "LotDelivered",
+            "timestamp": 1700142350,
+            "blockNumber": 4,
+            "resource": "0xb6ba1d4621ac120778299bc37d7af21033a532f8d4b9a1d07f7ea9884bed4400"
+          }
+        ],
+        "proofId": "transition_1",
+        "chainSource": "cross-chain-proof"
+      }
+    },
+    "e11": {
+      "ocel:activity": "LotDelivered",
+      "ocel:timestamp": "2023-11-16T13:45:50Z",
+      "ocel:omap": [
+        "Shipment:LOT-00001-SHIP",
+        "Lot:LOT-00001"
+      ],
+      "ocel:vmap": {
+        "blocknum": 4,
+        "resource": "0xb6ba1d4621ac120778299bc37d7af21033a532f8d4b9a1d07f7ea9884bed4400",
+        "chainSource": "ethereum"
+      }
+    },
+    "e12": {
+      "ocel:activity": "LotCreated",
+      "ocel:timestamp": "2023-11-16T13:49:33Z",
+      "ocel:omap": [
+        "Lot:LOT-00002"
+      ],
+      "ocel:vmap": {
+        "blocknum": 7,
+        "resource": "bb3cc48183399351ccaf24793135d7c069a334ca4b67d89e67e24ad8987d3b8c",
+        "chainSource": "fabric"
+      }
+    },
+    "e13": {
+      "ocel:activity": "RawMaterialReceived",
+      "ocel:timestamp": "2023-11-16T14:04:58Z",
+      "ocel:omap": [
+        "RawMaterialBatch:LOT-00002-RM0",
+        "Lot:LOT-00002"
+      ],
+      "ocel:vmap": {
+        "blocknum": 8,
+        "resource": "541afb7750e01978d769eba655fe68ad0643d89180f225ea7ce79944762be6e1",
+        "chainSource": "fabric"
+      }
+    },
+    "e14": {
+      "ocel:activity": "RawMaterialReceived",
+      "ocel:timestamp": "2023-11-16T14:13:18Z",
+      "ocel:omap": [
+        "RawMaterialBatch:LOT-00002-RM1",
+        "Lot:LOT-00002"
+      ],
+      "ocel:vmap": {
+        "blocknum": 9,
+        "resource": "c9dd150ab6ebb757798067331b827adbb844e5a67dfd84301a6ec9d23626ae93",
+        "chainSource": "fabric"
+      }
+    },
+    "e15": {
+      "ocel:activity": "RawMaterialReceived",
+      "ocel:timestamp": "2023-11-16T14:27:16Z",
+      "ocel:omap": [
+        "RawMaterialBatch:LOT-00002-RM2",
+        "Lot:LOT-00002"
+      ],
+      "ocel:vmap": {
+        "blocknum": 10,
+        "resource": "37d5c305023e02a633083905f7e7e82331a114f166ae2e47034aca9af99ab741",
+        "chainSource": "fabric"
+      }
+    },
+    "e16": {
+      "ocel:activity": "QualityControlApproved",
+      "ocel:timestamp": "2023-11-16T15:50:44Z",
+      "ocel:omap": [
+        "Lot:LOT-00002"
+      ],
+      "ocel:vmap": {
+        "blocknum": 11,
+        "resource": "e344f87a39912e0a4a99ba15dbb5e00791cdddc9fa7d4d15913088a2f4559010",
+        "chainSource": "fabric"
+      }
+    },
+    "e17": {
+      "ocel:activity": "LotShipped",
+      "ocel:timestamp": "2023-11-16T16:48:16Z",
+      "ocel:omap": [
+        "Shipment:LOT-00002-SHIP",
+        "Lot:LOT-00002"
+      ],
+      "ocel:vmap": {
+        "blocknum": 5,
+        "resource": "0xecd840be0c83c49407fa3a0dd3dda253cb76eb6357fb0d79b4d2d4456e38d78e",
+        "chainSource": "ethereum"
+      }
+    },
+    "e18": {
+      "ocel:activity": "CrossChainHandoffVerified",
+      "ocel:timestamp": "2023-11-17T10:31:53Z",
+      "ocel:omap": [
+        "Lot:LOT-00002"
+      ],
+      "ocel:vmap": {
+        "source": "cross-chain-proof",
+        "resource": "cross-chain-proof",
+        "chains": [
+          "ethereum",
+          "fabric"
+        ],
+        "transactions": [
+          {
+            "chainSource": "fabric",
+            "activity": "LotCreated",
+            "timestamp": 1700142573,
+            "blockNumber": 7,
+            "resource": "bb3cc48183399351ccaf24793135d7c069a334ca4b67d89e67e24ad8987d3b8c"
+          },
+          {
+            "chainSource": "fabric",
+            "activity": "RawMaterialReceived",
+            "timestamp": 1700143498,
+            "blockNumber": 8,
+            "resource": "541afb7750e01978d769eba655fe68ad0643d89180f225ea7ce79944762be6e1"
+          },
+          {
+            "chainSource": "fabric",
+            "activity": "RawMaterialReceived",
+            "timestamp": 1700143998,
+            "blockNumber": 9,
+            "resource": "c9dd150ab6ebb757798067331b827adbb844e5a67dfd84301a6ec9d23626ae93"
+          },
+          {
+            "chainSource": "fabric",
+            "activity": "RawMaterialReceived",
+            "timestamp": 1700144836,
+            "blockNumber": 10,
+            "resource": "37d5c305023e02a633083905f7e7e82331a114f166ae2e47034aca9af99ab741"
+          },
+          {
+            "chainSource": "fabric",
+            "activity": "QualityControlApproved",
+            "timestamp": 1700149844,
+            "blockNumber": 11,
+            "resource": "e344f87a39912e0a4a99ba15dbb5e00791cdddc9fa7d4d15913088a2f4559010"
+          },
+          {
+            "chainSource": "ethereum",
+            "activity": "LotShipped",
+            "timestamp": 1700153296,
+            "blockNumber": 5,
+            "resource": "0xecd840be0c83c49407fa3a0dd3dda253cb76eb6357fb0d79b4d2d4456e38d78e"
+          },
+          {
+            "chainSource": "ethereum",
+            "activity": "LotDelivered",
+            "timestamp": 1700217113,
+            "blockNumber": 6,
+            "resource": "0x966811c4cee81937e6352065e7e320e29503e05271781e0908779a9035edf3db"
+          }
+        ],
+        "proofId": "transition_2",
+        "chainSource": "cross-chain-proof"
+      }
+    },
+    "e19": {
+      "ocel:activity": "LotDelivered",
+      "ocel:timestamp": "2023-11-17T10:31:53Z",
+      "ocel:omap": [
+        "Shipment:LOT-00002-SHIP",
+        "Lot:LOT-00002"
+      ],
+      "ocel:vmap": {
+        "blocknum": 6,
+        "resource": "0x966811c4cee81937e6352065e7e320e29503e05271781e0908779a9035edf3db",
+        "chainSource": "ethereum"
+      }
+    },
+    "e20": {
+      "ocel:activity": "LotCreated",
+      "ocel:timestamp": "2023-11-17T10:34:13Z",
+      "ocel:omap": [
+        "Lot:LOT-00003"
+      ],
+      "ocel:vmap": {
+        "blocknum": 12,
+        "resource": "dab1c2c58ded347974942c5ef9266ec72c1f51dda1401d55b404fffdbb75e311",
+        "chainSource": "fabric"
+      }
+    },
+    "e21": {
+      "ocel:activity": "RawMaterialReceived",
+      "ocel:timestamp": "2023-11-17T10:45:13Z",
+      "ocel:omap": [
+        "RawMaterialBatch:LOT-00003-RM0",
+        "Lot:LOT-00003"
+      ],
+      "ocel:vmap": {
+        "blocknum": 13,
+        "resource": "760c32bc3d05095e55896e3cba4b0e8168a3bb5efd537d6b93d84dc56fa4e405",
+        "chainSource": "fabric"
+      }
+    },
+    "e22": {
+      "ocel:activity": "RawMaterialReceived",
+      "ocel:timestamp": "2023-11-17T11:10:15Z",
+      "ocel:omap": [
+        "RawMaterialBatch:LOT-00003-RM1",
+        "Lot:LOT-00003"
+      ],
+      "ocel:vmap": {
+        "blocknum": 14,
+        "resource": "7d801e3021c7352982b6540d60306bec9814d4b0b296f0479bac4ed7d5636ca5",
+        "chainSource": "fabric"
+      }
+    },
+    "e23": {
+      "ocel:activity": "RawMaterialReceived",
+      "ocel:timestamp": "2023-11-17T11:19:01Z",
+      "ocel:omap": [
+        "RawMaterialBatch:LOT-00003-RM2",
+        "Lot:LOT-00003"
+      ],
+      "ocel:vmap": {
+        "blocknum": 15,
+        "resource": "a07bc9bf2d6d10cc2660d2cd12d62b3db74137051bf2247d606c768447128b7f",
+        "chainSource": "fabric"
+      }
+    },
+    "e24": {
+      "ocel:activity": "QualityControlRejected",
+      "ocel:timestamp": "2023-11-17T12:34:54Z",
+      "ocel:omap": [
+        "Lot:LOT-00003"
+      ],
+      "ocel:vmap": {
+        "blocknum": 16,
+        "resource": "c1d198ce301a9e71fb4fe92d6f9ffc28641c5685cc40947fbedf45a31532d7c5",
+        "chainSource": "fabric"
+      }
+    },
+    "e25": {
+      "ocel:activity": "LotCreated",
+      "ocel:timestamp": "2023-11-17T12:42:07Z",
+      "ocel:omap": [
+        "Lot:LOT-00004"
+      ],
+      "ocel:vmap": {
+        "blocknum": 17,
+        "resource": "2ab6ff2b9e462a7ee9f7b2d30298375acaea6ec8da2e661362e95cdfc4bef32f",
+        "chainSource": "fabric"
+      }
+    },
+    "e26": {
+      "ocel:activity": "RawMaterialReceived",
+      "ocel:timestamp": "2023-11-17T12:55:45Z",
+      "ocel:omap": [
+        "RawMaterialBatch:LOT-00004-RM0",
+        "Lot:LOT-00004"
+      ],
+      "ocel:vmap": {
+        "blocknum": 18,
+        "resource": "2797d9421b50cf4c388401902c4880e364564635418406072bf0d49644d9fcc7",
+        "chainSource": "fabric"
+      }
+    },
+    "e27": {
+      "ocel:activity": "QualityControlApproved",
+      "ocel:timestamp": "2023-11-17T14:13:58Z",
+      "ocel:omap": [
+        "Lot:LOT-00004"
+      ],
+      "ocel:vmap": {
+        "blocknum": 19,
+        "resource": "801fb304fa19f8ce1647e88615d46c0fa28f47047f4b47de5845476ed48dc097",
+        "chainSource": "fabric"
+      }
+    },
+    "e28": {
+      "ocel:activity": "LotShipped",
+      "ocel:timestamp": "2023-11-17T15:07:17Z",
+      "ocel:omap": [
+        "Shipment:LOT-00004-SHIP",
+        "Lot:LOT-00004"
+      ],
+      "ocel:vmap": {
+        "blocknum": 7,
+        "resource": "0x2e9b1797751b54f8972e56bd0581d91fcdf46cec666885d7c5971bcf7b3184eb",
+        "chainSource": "ethereum"
+      }
+    },
+    "e29": {
+      "ocel:activity": "CrossChainHandoffVerified",
+      "ocel:timestamp": "2023-11-18T14:17:57Z",
+      "ocel:omap": [
+        "Lot:LOT-00004"
+      ],
+      "ocel:vmap": {
+        "source": "cross-chain-proof",
+        "resource": "cross-chain-proof",
+        "chains": [
+          "ethereum",
+          "fabric"
+        ],
+        "transactions": [
+          {
+            "chainSource": "fabric",
+            "activity": "LotCreated",
+            "timestamp": 1700224927,
+            "blockNumber": 17,
+            "resource": "2ab6ff2b9e462a7ee9f7b2d30298375acaea6ec8da2e661362e95cdfc4bef32f"
+          },
+          {
+            "chainSource": "fabric",
+            "activity": "RawMaterialReceived",
+            "timestamp": 1700225745,
+            "blockNumber": 18,
+            "resource": "2797d9421b50cf4c388401902c4880e364564635418406072bf0d49644d9fcc7"
+          },
+          {
+            "chainSource": "fabric",
+            "activity": "QualityControlApproved",
+            "timestamp": 1700230438,
+            "blockNumber": 19,
+            "resource": "801fb304fa19f8ce1647e88615d46c0fa28f47047f4b47de5845476ed48dc097"
+          },
+          {
+            "chainSource": "ethereum",
+            "activity": "LotShipped",
+            "timestamp": 1700233637,
+            "blockNumber": 7,
+            "resource": "0x2e9b1797751b54f8972e56bd0581d91fcdf46cec666885d7c5971bcf7b3184eb"
+          },
+          {
+            "chainSource": "ethereum",
+            "activity": "LotDelivered",
+            "timestamp": 1700317077,
+            "blockNumber": 8,
+            "resource": "0xce09ee50982c45d6835a71137c2639ee40ddde0abb0fc10499f10076d62cdddd"
+          }
+        ],
+        "proofId": "transition_3",
+        "chainSource": "cross-chain-proof"
+      }
+    },
+    "e30": {
+      "ocel:activity": "LotDelivered",
+      "ocel:timestamp": "2023-11-18T14:17:57Z",
+      "ocel:omap": [
+        "Shipment:LOT-00004-SHIP",
+        "Lot:LOT-00004"
+      ],
+      "ocel:vmap": {
+        "blocknum": 8,
+        "resource": "0xce09ee50982c45d6835a71137c2639ee40ddde0abb0fc10499f10076d62cdddd",
+        "chainSource": "ethereum"
+      }
+    }
+  },
+  "ocel:objects": {
+    "Lot:LOT-00000": {
+      "ocel:type": "Lot",
+      "ocel:ovmap": {
+        "lotId": "LOT-00000",
+        "product": "Paracetamol API",
+        "quantity": 704,
+        "manufacturer": "PharmaGen",
+        "status": "delivered",
+        "crossChainStatus": "linked"
+      }
+    },
+    "RawMaterialBatch:LOT-00000-RM0": {
+      "ocel:type": "RawMaterialBatch",
+      "ocel:ovmap": {
+        "batchId": "LOT-00000-RM0",
+        "materialName": "Excipient-X",
+        "supplier": "RawChem Co",
+        "quantity": 204
+      }
+    },
+    "Lot:LOT-00001": {
+      "ocel:type": "Lot",
+      "ocel:ovmap": {
+        "lotId": "LOT-00001",
+        "product": "Paracetamol API",
+        "quantity": 1267,
+        "manufacturer": "Sanofi-TN",
+        "status": "delivered",
+        "crossChainStatus": "linked"
+      }
+    },
+    "RawMaterialBatch:LOT-00001-RM0": {
+      "ocel:type": "RawMaterialBatch",
+      "ocel:ovmap": {
+        "batchId": "LOT-00001-RM0",
+        "materialName": "Paracetamol API",
+        "supplier": "RawChem Co",
+        "quantity": 303
+      }
+    },
+    "Lot:LOT-00002": {
+      "ocel:type": "Lot",
+      "ocel:ovmap": {
+        "lotId": "LOT-00002",
+        "product": "Amoxicillin API",
+        "quantity": 553,
+        "manufacturer": "PharmaGen",
+        "status": "delivered",
+        "crossChainStatus": "linked"
+      }
+    },
+    "RawMaterialBatch:LOT-00002-RM0": {
+      "ocel:type": "RawMaterialBatch",
+      "ocel:ovmap": {
+        "batchId": "LOT-00002-RM0",
+        "materialName": "Amoxicillin API",
+        "supplier": "APIWorks",
+        "quantity": 259
+      }
+    },
+    "RawMaterialBatch:LOT-00002-RM1": {
+      "ocel:type": "RawMaterialBatch",
+      "ocel:ovmap": {
+        "batchId": "LOT-00002-RM1",
+        "materialName": "Amoxicillin API",
+        "supplier": "ChemSource Ltd",
+        "quantity": 194
+      }
+    },
+    "RawMaterialBatch:LOT-00002-RM2": {
+      "ocel:type": "RawMaterialBatch",
+      "ocel:ovmap": {
+        "batchId": "LOT-00002-RM2",
+        "materialName": "Paracetamol API",
+        "supplier": "APIWorks",
+        "quantity": 967
+      }
+    },
+    "Lot:LOT-00003": {
+      "ocel:type": "Lot",
+      "ocel:ovmap": {
+        "lotId": "LOT-00003",
+        "product": "Paracetamol API",
+        "quantity": 3600,
+        "manufacturer": "PharmaGen",
+        "status": "qc_rejected"
+      }
+    },
+    "RawMaterialBatch:LOT-00003-RM0": {
+      "ocel:type": "RawMaterialBatch",
+      "ocel:ovmap": {
+        "batchId": "LOT-00003-RM0",
+        "materialName": "Amoxicillin API",
+        "supplier": "RawChem Co",
+        "quantity": 296
+      }
+    },
+    "RawMaterialBatch:LOT-00003-RM1": {
+      "ocel:type": "RawMaterialBatch",
+      "ocel:ovmap": {
+        "batchId": "LOT-00003-RM1",
+        "materialName": "Paracetamol API",
+        "supplier": "ChemSource Ltd",
+        "quantity": 777
+      }
+    },
+    "RawMaterialBatch:LOT-00003-RM2": {
+      "ocel:type": "RawMaterialBatch",
+      "ocel:ovmap": {
+        "batchId": "LOT-00003-RM2",
+        "materialName": "Amoxicillin API",
+        "supplier": "ChemSource Ltd",
+        "quantity": 975
+      }
+    },
+    "Lot:LOT-00004": {
+      "ocel:type": "Lot",
+      "ocel:ovmap": {
+        "lotId": "LOT-00004",
+        "product": "Amoxicillin API",
+        "quantity": 4214,
+        "manufacturer": "Biolab-TN",
+        "status": "delivered",
+        "crossChainStatus": "linked"
+      }
+    },
+    "RawMaterialBatch:LOT-00004-RM0": {
+      "ocel:type": "RawMaterialBatch",
+      "ocel:ovmap": {
+        "batchId": "LOT-00004-RM0",
+        "materialName": "Amoxicillin API",
+        "supplier": "ChemSource Ltd",
+        "quantity": 786
+      }
+    },
+    "Shipment:LOT-00000-SHIP": {
+      "ocel:type": "Shipment",
+      "ocel:ovmap": {
+        "shipmentId": "LOT-00000-SHIP",
+        "carrier": "DHL Pharma",
+        "destination": "Export - EU",
+        "status": "delivered"
+      }
+    },
+    "Shipment:LOT-00001-SHIP": {
+      "ocel:type": "Shipment",
+      "ocel:ovmap": {
+        "shipmentId": "LOT-00001-SHIP",
+        "carrier": "FedEx CoolChain",
+        "destination": "Tunis Depot",
+        "status": "delivered"
+      }
+    },
+    "Shipment:LOT-00002-SHIP": {
+      "ocel:type": "Shipment",
+      "ocel:ovmap": {
+        "shipmentId": "LOT-00002-SHIP",
+        "carrier": "DHL Pharma",
+        "destination": "Export - EU",
+        "status": "delivered"
+      }
+    },
+    "Shipment:LOT-00004-SHIP": {
+      "ocel:type": "Shipment",
+      "ocel:ovmap": {
+        "shipmentId": "LOT-00004-SHIP",
+        "carrier": "LocalFreight",
+        "destination": "Tunis Depot",
+        "status": "delivered"
+      }
+    }
+  }
+}
